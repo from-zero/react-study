@@ -1,0 +1,7 @@
+.img{
+  border:1px solid green;
+}
+.img1{
+  composes:img;
+  border-width:3px;
+}

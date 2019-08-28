@@ -17,6 +17,7 @@ import Favorite from './components/lesson2/Favorite';
 import Counter from './components/lesson2/Counter';
 import HocTest from './components/lesson2/HocTest';
 import CounterHoc from './components/lesson2/CounterHoc';
+import Composition from './components/lesson2/Composition';
 
 export default function App(props) {
   const [content, setContent] = useState('some content')
@@ -37,7 +38,8 @@ export default function App(props) {
       {/* <Favorite/> */}
       {/* <Counter/> */}
       {/* <HocTest /> */}
-      <CounterHoc />
+      {/* <CounterHoc /> */}
+      <Composition />
     </div>
   )
 }

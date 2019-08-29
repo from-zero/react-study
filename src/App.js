@@ -18,6 +18,8 @@ import Counter from './components/lesson2/Counter';
 import HocTest from './components/lesson2/HocTest';
 import CounterHoc from './components/lesson2/CounterHoc';
 import Composition from './components/lesson2/Composition';
+import RadioComponsition from './components/lesson2/RadioComposition';
+import HooksTest from './components/lesson2/HooksTest';
 
 export default function App(props) {
   const [content, setContent] = useState('some content')
@@ -39,7 +41,9 @@ export default function App(props) {
       {/* <Counter/> */}
       {/* <HocTest /> */}
       {/* <CounterHoc /> */}
-      <Composition />
+      {/* <Composition /> */}
+      {/* <RadioComponsition /> */}
+      <HooksTest />
     </div>
   )
 }

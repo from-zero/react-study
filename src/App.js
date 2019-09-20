@@ -20,6 +20,9 @@ import CounterHoc from './components/lesson2/CounterHoc';
 import Composition from './components/lesson2/Composition';
 import RadioComponsition from './components/lesson2/RadioComposition';
 import HooksTest from './components/lesson2/HooksTest';
+import ReduxTest from './components/react-all/ReduxTest';
+import {Button} from  'antd';
+import "antd/dist/antd.css"
 
 export default function App(props) {
   const [content, setContent] = useState('some content')
@@ -43,7 +46,9 @@ export default function App(props) {
       {/* <CounterHoc /> */}
       {/* <Composition /> */}
       {/* <RadioComponsition /> */}
-      <HooksTest />
+      {/* <HooksTest /> */}
+      <ReduxTest/>
+      <Button>aaaa</Button>
     </div>
   )
 }

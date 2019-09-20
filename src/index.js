@@ -4,6 +4,8 @@ import App from './App.js'
 import logo from './logo.svg'
 import './index.css'
 import style from './index.module.css'
+import store from './store'
+import {Provider} from 'react-redux'
 
 
 //React负责一些逻辑控制进行数据处理
@@ -43,4 +45,5 @@ import style from './index.module.css'
 //     </div>
 // )
 // console.log(jsx)
-ReactDOM.render(<App title="my class" />, document.getElementById('root'))
+ReactDOM.render(
+    <Provider store={store}><App title="my class" /></Provider>, document.getElementById('root'))

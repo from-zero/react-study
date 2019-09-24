@@ -21,8 +21,10 @@ import Composition from './components/lesson2/Composition';
 import RadioComponsition from './components/lesson2/RadioComposition';
 import HooksTest from './components/lesson2/HooksTest';
 import ReduxTest from './components/react-all/ReduxTest';
+import MyReduxTest from './components/react-all/MyReduxTest';
 import {Button} from  'antd';
 import "antd/dist/antd.css"
+import MyReactReduxTest from './components/react-all/MyReactReduxTest';
 
 export default function App(props) {
   const [content, setContent] = useState('some content')
@@ -47,8 +49,10 @@ export default function App(props) {
       {/* <Composition /> */}
       {/* <RadioComponsition /> */}
       {/* <HooksTest /> */}
-      <ReduxTest/>
-      <Button>aaaa</Button>
+      {/* <ReduxTest/> */}
+      <MyReduxTest/>
+      {/* <MyReactReduxTest/> */}
+      {/* <Button>aaaa</Button> */}
     </div>
   )
 }

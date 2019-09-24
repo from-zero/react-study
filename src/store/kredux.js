@@ -1,0 +1,64 @@
+/****
+ * 实现state存储
+ * 实现getState
+ * 实现dispatch触发state改变
+ * 订阅subscribe
+ */
+export const createStore=(reducer,enhanncer)=>{
+    if(enhanncer){
+       return enhanncer(createStore)(reducer)
+    }
+    let currState = undefined;
+    let cbs = [];
+    function getState(){
+        return currState;
+    }
+    function dispatch(action){
+        currState = reducer(currState, action)
+        cbs.forEach((cb)=>{
+            cb(currState);
+        })
+    }
+    function subscribe(cb){
+        cbs.push(cb);
+    }
+    //初始化状态
+    dispatch({type:'@kkb-redux-init'})
+
+    return {
+        getState,
+        dispatch,
+        subscribe
+    }
+}
+export function applyMiddlewares(...middlewares){
+    //返回强化store的方法
+    return createStore => (...args) =>{
+        const store = createStore(...args);
+
+        let dispatch = store.dispatch;
+        const midApi = {
+            getState:store.getState,
+            dispatch: (...args)=> dispatch(...args)
+        }
+
+        let chain = middlewares.map(mw=>mw(midApi))
+
+        //用聚合对原有的dispatch进行加强
+        dispatch = compose(...chain)(store.dispatch)
+        console.log(dispatch)
+        return {
+            ...store,
+            dispatch
+        }
+    }
+}
+function compose(...funcs){
+    if(funcs.length == 0) return args=>args;
+    if(funcs.length == 1) return funcs[0];
+
+    //[f1,f2,f3] ===> f3(f2(f1()))
+    return funcs.reduce((left, right)=>(...args)=>{
+        right(left(...args));
+    })
+}

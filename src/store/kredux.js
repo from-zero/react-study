@@ -58,7 +58,5 @@ function compose(...funcs){
     if(funcs.length == 1) return funcs[0];
 
     //[f1,f2,f3] ===> f3(f2(f1()))
-    return funcs.reduce((left, right)=>(...args)=>{
-        right(left(...args));
-    })
+    return funcs.reduce((left, right)=>(...args)=> right(left(...args)) )
 }

@@ -12,7 +12,9 @@ const logger = ({dispatch, getState})=>{
 } 
 const thunk = () =>{
     return dispatch => action =>{
-        if(typeof action == 'function') action()
+        if(typeof action == 'function'){
+            return action(dispatch, getState)
+        }
         return dispatch(action)
     }
 }

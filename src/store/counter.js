@@ -1,3 +1,4 @@
+
 //vuex中的action
 export const add = val =>({type:'add', value:val}); //action creator
 export const plus = (val)=>({type:'plus', value:val});
@@ -8,7 +9,15 @@ export const asyncAdd = ()=>dispatch=>{
                 dispatch({type:'add'})
             }, 1000)
         }
-
+export const asyncAddPromise = ()=>dispatch=>{
+            //异步调用
+            return new Promise(resolve=>{
+                setTimeout(()=>{
+                    dispatch({type:'add',value:3})
+                    resolve()
+                }, 1000)
+            })
+        }
 export const counterReducer = function(state = 0, action){
     let val = action.value || 1;
     switch(action.type){

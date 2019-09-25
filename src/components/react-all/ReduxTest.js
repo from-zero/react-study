@@ -43,7 +43,7 @@ class ReduxTest extends Component {
             <div>
                 {/* {store.getState()}<br/> */}
                 {this.props.num}<br/>
-                <button onClick={()=>this.props.add(2)}>add</button>
+                <button onClick={()=>this.props.add()}>add</button>
                 <button onClick={()=>this.props.plus(2)}>plus</button>
                 <button onClick={this.props.asyncAdd}>asyncAdd</button>
             </div>

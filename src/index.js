@@ -5,7 +5,8 @@ import logo from './logo.svg'
 import './index.css'
 import style from './index.module.css'
 import store from './store'
-import {Provider} from 'react-redux'
+import {Provider} from './store/kreact-redux'
+// import {Provider} from 'react-redux'
 
 
 //React负责一些逻辑控制进行数据处理

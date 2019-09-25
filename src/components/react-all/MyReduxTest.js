@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
-import {createStore, applyMiddlewares} from '../../store/kredux';
+import {createStore, applyMiddleware} from '../../store/kredux';
 import {counterReducer} from '../../store/counter';
 
 //中间件
 const logger = ({dispatch, getState})=>{
     return dispatch => action =>{
-        console.log(dispatch);
         console.log(action.type+'执行了');
+        console.log(action);
         return dispatch(action)
     }
 } 
 const thunk = () =>{
     return dispatch => action =>{
+<<<<<<< HEAD
         if(typeof action == 'function'){
             return action(dispatch, getState)
         }
+=======
+        if(typeof action == 'function') {
+            /** 
+            *不return会导致继续进入下一个中间件，action是function可能之后的中间件无法解析。
+            **/
+            //action()
+            return action()
+        }
+        //action()
+>>>>>>> bad3a7577780612d3be8d5554c6abe493c925be6
         return dispatch(action)
     }
 }
-export const store = createStore(counterReducer, applyMiddlewares(logger, thunk));
+export const store = createStore(counterReducer, applyMiddleware(logger, thunk));
 
 export default class MyReduxTest extends Component{
     componentDidMount(){
@@ -32,9 +43,9 @@ export default class MyReduxTest extends Component{
             <button onClick={()=>store.dispatch({type:'add'})}>add</button><br/>
             <button onClick={()=>store.dispatch({type:'plus'})}>plus</button><br/>
             <button onClick={()=>store.dispatch(()=>{
-                /*setTimeout(()=>{
+                setTimeout(()=>{
                     store.dispatch({type:'add'})
-                },2000)*/
+                },2000)
             })}>aysncAdd</button><br/>
         </div>
     }

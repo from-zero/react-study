@@ -1,4 +1,5 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux';
+import {createStore, applyMiddleware} from './kredux';
+import {combineReducers} from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {counterReducer} from './counter'

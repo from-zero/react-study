@@ -49,7 +49,7 @@ export default function App(props) {
       {/* <Composition /> */}
       {/* <RadioComponsition /> */}
       {/* <HooksTest /> */}
-      {/* <ReduxTest/> */}
+      <ReduxTest/>
       <MyReduxTest/>
       {/* <MyReactReduxTest/> */}
       {/* <Button>aaaa</Button> */}

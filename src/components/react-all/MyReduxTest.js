@@ -16,8 +16,8 @@ const thunk = () =>{
             /** 
             *不return也不会报错，只是会继续进入到logger打印一个有action为function的log,然后等待setTimeout执行后又再次触发 logger
             **/
-            action()
-            //return action()
+            //action()
+            return action()
         }
         //action()
         return dispatch(action)

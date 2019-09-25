@@ -31,7 +31,7 @@ export const createStore=(reducer,enhanncer)=>{
         subscribe
     }
 }
-export function applyMiddlewares(...middlewares){
+export function applyMiddleware(...middlewares){
     //返回强化store的方法
     return createStore => (...args) =>{
         const store = createStore(...args);

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {createStore, applyMiddlewares} from '../../store/kredux';
+import {createStore, applyMiddleware} from '../../store/kredux';
 import {counterReducer} from '../../store/counter';
 
 //中间件
@@ -23,7 +23,7 @@ const thunk = () =>{
         return dispatch(action)
     }
 }
-export const store = createStore(counterReducer, applyMiddlewares(logger, thunk));
+export const store = createStore(counterReducer, applyMiddleware(logger, thunk));
 
 export default class MyReduxTest extends Component{
     componentDidMount(){

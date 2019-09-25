@@ -14,7 +14,7 @@ const thunk = () =>{
     return dispatch => action =>{
         if(typeof action == 'function') {
             /** 
-            *不return也不会报错，只是会继续进入到logger打印一个有action为function的log,然后等待setTimeout执行后又再次触发 logger
+            *不return会导致继续进入下一个中间件，action是function可能之后的中间件无法解析。
             **/
             //action()
             return action()

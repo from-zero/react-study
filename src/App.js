@@ -49,9 +49,9 @@ export default function App(props) {
       {/* <Composition /> */}
       {/* <RadioComponsition /> */}
       {/* <HooksTest /> */}
-      <ReduxTest/>
-      <MyReduxTest/>
-      {/* <MyReactReduxTest/> */}
+      {/* <ReduxTest/> */}
+      {/* <MyReduxTest/> */}
+      <MyReactReduxTest/>
       {/* <Button>aaaa</Button> */}
     </div>
   )

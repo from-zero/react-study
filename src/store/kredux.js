@@ -46,7 +46,7 @@ export function applyMiddlewares(...middlewares){
 
         //用聚合对原有的dispatch进行加强
         dispatch = compose(...chain)(store.dispatch)
-        console.log(dispatch)
+        //console.log(dispatch)
         return {
             ...store,
             dispatch

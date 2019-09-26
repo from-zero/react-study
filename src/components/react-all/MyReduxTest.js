@@ -12,11 +12,6 @@ const logger = ({dispatch, getState})=>{
 } 
 const thunk = () =>{
     return dispatch => action =>{
-<<<<<<< HEAD
-        if(typeof action == 'function'){
-            return action(dispatch, getState)
-        }
-=======
         if(typeof action == 'function') {
             /** 
             *不return会导致继续进入下一个中间件，action是function可能之后的中间件无法解析。
@@ -25,7 +20,6 @@ const thunk = () =>{
             return action()
         }
         //action()
->>>>>>> bad3a7577780612d3be8d5554c6abe493c925be6
         return dispatch(action)
     }
 }

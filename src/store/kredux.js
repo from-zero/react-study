@@ -58,12 +58,7 @@ function compose(...funcs){
     if(funcs.length == 1) return funcs[0];
 
     //[f1,f2,f3] ===> f3(f2(f1()))
-<<<<<<< HEAD
-    return funcs.reduce((left, right)=>(...args)=> right(left(...args)) )
-}
-=======
     //最终return之后被调用的顺序 会是 f3,f2,f1
     //所以应该 转换为 ===> f1(f2(f3()))，之后被调用才是 f1,f2,f3
     return funcs.reduce((left, right)=>(...args)=>left(right(...args)))
 }
->>>>>>> bad3a7577780612d3be8d5554c6abe493c925be6

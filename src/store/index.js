@@ -1,8 +1,9 @@
-import {createStore, applyMiddleware} from './kredux';
-import {combineReducers} from 'redux';
+// import {createStore, applyMiddleware} from './kredux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {counterReducer} from './counter'
+import { RoleReducer } from './role';
 
 //提取到对应的reducer
 // const counterReducer = function(state = 0, action){
@@ -19,7 +20,8 @@ import {counterReducer} from './counter'
 //中间件是有顺序的，一般有依赖的放在后面，被依赖的在前面
 const store = createStore(
     combineReducers({
-        counter:counterReducer
+        counter:counterReducer,
+        role:RoleReducer
     }),
     applyMiddleware(logger, thunk)
 );

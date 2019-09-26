@@ -25,6 +25,7 @@ import MyReduxTest from './components/react-all/MyReduxTest';
 import {Button} from  'antd';
 import "antd/dist/antd.css"
 import MyReactReduxTest from './components/react-all/MyReactReduxTest';
+import ReactRouterTest from './components/react-all/ReactRouterTest';
 
 export default function App(props) {
   const [content, setContent] = useState('some content')
@@ -51,7 +52,8 @@ export default function App(props) {
       {/* <HooksTest /> */}
       {/* <ReduxTest/> */}
       {/* <MyReduxTest/> */}
-      <MyReactReduxTest/>
+      {/* <MyReactReduxTest/> */}
+      <ReactRouterTest></ReactRouterTest>
       {/* <Button>aaaa</Button> */}
     </div>
   )

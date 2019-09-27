@@ -4,6 +4,11 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {counterReducer} from './counter'
 import { RoleReducer } from './role';
+import UserReducer from './userReducer';
+import createSagaMiddleware from 'redux-saga';
+import mySaga from './user';
+
+const sagaMiddleware = createSagaMiddleware()
 
 //提取到对应的reducer
 // const counterReducer = function(state = 0, action){
@@ -21,8 +26,10 @@ import { RoleReducer } from './role';
 const store = createStore(
     combineReducers({
         counter:counterReducer,
-        role:RoleReducer
+        // role:RoleReducer,
+        user:UserReducer
     }),
-    applyMiddleware(logger, thunk)
+    applyMiddleware(logger, thunk, sagaMiddleware)
 );
+sagaMiddleware.run(mySaga)
 export default store;
